@@ -46,7 +46,7 @@ class MyCalenderView: UIView, UIScrollViewDelegate {
         window?.insertSubview(self, at:Int(INT8_MAX))
     }
     
-    func dissmisCalender() {
+    func dismissCalender() {
         self.removeFromSuperview()
     }
     
@@ -174,15 +174,15 @@ class MyCalenderView: UIView, UIScrollViewDelegate {
         let nextPageIndex = getNextPageWithCurrentPage(dateComponents: currentDateComponents)
 
         let previousContentView = MyCalenderViewItem.init(frame: scrollView.bounds,dateComponents: previousPageIndex) { [weak self] in
-            self?.dissmisCalender()
+            self?.dismissCalender()
         }
         previousContentView.delegate = delegate
         let currentContentView = MyCalenderViewItem.init(frame: scrollView.bounds, dateComponents: currentDateComponents) { [weak self] in
-            self?.dissmisCalender()
+            self?.dismissCalender()
         }
         currentContentView.delegate = delegate
         let nextContentView = MyCalenderViewItem.init(frame: scrollView.bounds, dateComponents: nextPageIndex) { [weak self] in
-            self?.dissmisCalender()
+            self?.dismissCalender()
         }
         nextContentView.delegate = delegate
         let viewsArr = [previousContentView,currentContentView,nextContentView];
